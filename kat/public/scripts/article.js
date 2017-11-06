@@ -15,6 +15,7 @@ var app = app || {};
   }
 
   Article.all = [];
+  console.log(Article.all);
 
   Article.prototype.toHtml = function() {
     var template = Handlebars.compile($('#article-template').text());
@@ -32,12 +33,10 @@ var app = app || {};
     // TODO: Refactor this .forEach() code, by using a .map() call instead, since what we are trying to accomplish is the transformation of one collection into another. Remember that we can set variables equal to the result of functions. So if we set a variable equal to the result of a .map(), it will be our transformed array.
     // There is no need to push to anything.
 
-    /* OLD forEach():
+    //  OLD forEach():
     rawData.forEach(articleObject => Article.all.push(new Article(articleObject)))
 
-    */
-
-    Article.all = rawData.map(articleObject => Article.all(new Article(articleObject)));
+    // Article.all = rawData.map(articleObject => Article.all(new Article(articleObject)));
 
   };
 
@@ -65,6 +64,7 @@ var app = app || {};
 
   Article.numWordsByAuthor = () => {
     return Article.allAuthors().map(author => {
+      
       // TODO: Transform each author string into an object with properties for the author's name, as well as the total number of words across all articles written by the specified author.
       // HINT: This .map() should be set up to return an object literal with two properties.
       // The first property should be pretty straightforward, but you will need to chain some combination of .filter(), .map(), and .reduce() to get the value for the second property.
@@ -116,5 +116,5 @@ var app = app || {};
       .then(console.log)
       .then(callback);
   };
-  module.Article;
-})
+  module.Article = Article;
+})(app);

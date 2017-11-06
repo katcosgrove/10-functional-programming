@@ -145,7 +145,7 @@ var app = app || {};
 
     // REVIEW: Simply write the correct values to the page:
     $('#blog-stats .articles').text(app.Article.all.length);
-    $('#blog-stats .words').text(app.Article.numWordsAll());
+    $('#blog-stats .words').text(app.Article.numWordsAll);
   };
-  module.articleView;
+  module.articleView = articleView;
 })(app);
