@@ -57,7 +57,6 @@ var app = app || {};
   Article.allAuthors = () => {
     return Article.all.map(article => article.author).reduce(function (allAuthors, authorName) {
       if (allAuthors.indexOf(authorName) < 0) allAuthors.push(authorName);
-      console.log(allAuthors);
       return allAuthors;
     }, [] )
   };
